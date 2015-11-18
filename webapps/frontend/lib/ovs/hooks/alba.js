@@ -19,8 +19,10 @@ define(['jquery'], function($) {
             { route: 'ovs-backend/:guid', moduleId: 'backend-alba-detail', title: $.t('alba:detail.title'), titlecode: 'alba:detail.title', nav: false, main: false }
         ],
         routePatches: [],
-        dashboards: [
-            'dashboard-alba'
-        ]
+        pages: {
+            dashboard: {
+                panels: {'dashboard-alba': []}
+            }
+        }
     };
 });
