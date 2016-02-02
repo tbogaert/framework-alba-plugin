@@ -1131,7 +1131,8 @@ class AlbaController(object):
             'log_level': 'info',
             'albamgr_cfg_url': 'etcd://127.0.0.1:2379/ovs/arakoon/{0}/config'.format(AlbaController._get_abm_service_name(alba_backend))
         }), raw=True)
-        params = {'ALBA_CONFIG': 'etcd://127.0.0.1:2379{0}'.format(config_location)}
+        params = {'ALBA_CONFIG': 'etcd://127.0.0.1:2379{0}'.format(config_location),
+                  'LOG_SINK': LogHandler.get_sink_path('alba')}
         service_name = '{0}_{1}'.format(AlbaController.ALBA_MAINTENANCE_SERVICE_PREFIX, backend_name)
         ServiceManager.prepare_template('ovs-{0}'.format(AlbaController.ALBA_MAINTENANCE_SERVICE_PREFIX),
                                         'ovs-{0}'.format(service_name), client=ovs_client)
